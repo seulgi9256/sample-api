@@ -8,6 +8,6 @@ public class SystemController {
 
     @GetMapping("/sys/healthz")
     public String  healthz(){
-        return "sample-api Service Healthy";
+        return "Service Healthy";
     }
 }

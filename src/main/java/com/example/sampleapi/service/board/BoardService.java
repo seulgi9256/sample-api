@@ -1,9 +1,13 @@
-package com.example.sampleapi.service;
+package com.example.sampleapi.service.board;
 import java.util.List;
 
 import com.example.sampleapi.model.board.Board;
+import com.example.sampleapi.model.board.InsertBoard;
+import com.example.sampleapi.model.board.UpdateBoard;
 import com.example.sampleapi.repository.board.BoardRepository;
+import com.example.sampleapi.repository.board.entity.BoardEntity;
 
+import org.springframework.beans.BeanUtils;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
@@ -37,19 +41,25 @@ public class BoardService {
 
 	 
 	public Board view( int num)  {		
-		Board board = boardRepository.findById(num).orElse(Board.builder().build());
-		return board;
+		BoardEntity boardEntity = boardRepository.findById(num).orElse(BoardEntity.builder().build());
+		return convertBoard(boardEntity);
 
 	}
 
-	public Board insert( Board paramBoard){		
-		Board board  = boardRepository.save(paramBoard);
-		return board;		 
+	public Board insert( InsertBoard insertBoard){		
+
+		// BoardEntity boardEntity= new BoardEntity();
+		// BeanUtils.copyProperties(insertBoard, boardEntity);
+		
+		BoardEntity boardEntity = BoardEntity.of(insertBoard);
+		BoardEntity result  = boardRepository.save(boardEntity);
+		return convertBoard(result);
 	}
 
 	@Transactional
-	public int updateBoard( Board paramBoard) {
-		int result = boardRepository.updateBoard(paramBoard);
+	public int updateBoard( UpdateBoard updateBoard) {
+		BoardEntity boardEntity=  BoardEntity.of(updateBoard);		 
+		int result = boardRepository.updateBoard(boardEntity);
 		return result;
 		
 	}
@@ -57,6 +67,13 @@ public class BoardService {
 	public int delete(int num)  {
 		boardRepository.deleteById(num);
 		return 1;
+
+	}
+
+	private Board convertBoard(BoardEntity boardEntity){
+		Board board= new Board();
+		BeanUtils.copyProperties(boardEntity, board);
+		return board;
 
 	}
     

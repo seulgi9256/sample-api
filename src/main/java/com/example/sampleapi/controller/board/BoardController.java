@@ -1,9 +1,11 @@
-package com.example.sampleapi.controller;
+package com.example.sampleapi.controller.board;
 import java.util.List;
 
 import com.example.sampleapi.model.board.Board;
+import com.example.sampleapi.model.board.InsertBoard;
+import com.example.sampleapi.model.board.UpdateBoard;
 import com.example.sampleapi.model.common.ResultMessage;
-import com.example.sampleapi.service.BoardService;
+import com.example.sampleapi.service.board.BoardService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -53,14 +55,14 @@ public class BoardController {
 	}
 
 	@PostMapping()
-	public ResponseEntity<ResultMessage> insert( @RequestBody  Board paramBoard) {		
+	public ResponseEntity<ResultMessage> insert( @RequestBody  InsertBoard paramBoard) {		
 		Board board  = boardService.insert(paramBoard);
 		return getResponseEntity(board);
 		
 	}
 
 	@PutMapping()
-	public ResponseEntity<ResultMessage> updateBoard(@RequestBody Board paramBoard) {
+	public ResponseEntity<ResultMessage> updateBoard(@RequestBody UpdateBoard paramBoard) {
 		int result = boardService.updateBoard(paramBoard);
 		return getResponseEntity(result);
 		

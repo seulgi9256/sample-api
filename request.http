@@ -26,7 +26,7 @@ PUT http://localhost:8088/sample-api/v1/boards
 Content-Type: application/json
 
 {  
-  "num": 90,
+  "num": 111,
   "title": "clt-test-수정",
   "contents": "clt-test-수정",
   "modifyId": "user1",

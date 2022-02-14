@@ -4,6 +4,7 @@ import java.util.List;
 import javax.sql.DataSource;
 
 import com.example.sampleapi.model.board.Board;
+import com.example.sampleapi.repository.board.sql.BoardSqls;
 
 import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
