@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: sample-api
+  profiles:
+    active: local
+    
+
+ 
+  
+ 
+  

@@ -1,0 +1,38 @@
+##########local########
+GET http://localhost:8088/sample-api/v1/boards/version
+
+GET http://localhost:8088/sample-api/v1/boards
+
+
+###
+GET http://localhost:8088/sample-api/v1/boards/search?search=test
+###
+GET http://localhost:8088/sample-api/v1/boards/90
+
+###
+POST  http://localhost:8088/sample-api/v1/boards
+Content-Type: application/json
+
+{  
+  "title": "test insert-1",
+  "contents": "test insert-1",
+  "writeId": "user1",
+  "writeName": "사용자1",
+  "writeDate": "2022-01-25T16:20:41"
+}
+
+###
+PUT http://localhost:8088/sample-api/v1/boards
+Content-Type: application/json
+
+{  
+  "num": 90,
+  "title": "clt-test-수정",
+  "contents": "clt-test-수정",
+  "modifyId": "user1",
+  "modifyName": "사용자1",
+  "modifyDate": "2021-01-25T16:20:45"
+}
+
+###
+DELETE http://localhost:8088/sample-api/v1/boards/90
