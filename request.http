@@ -7,7 +7,7 @@ GET http://localhost:8088/sample-api/v1/boards
 ###
 GET http://localhost:8088/sample-api/v1/boards/search?search=test
 ###
-GET http://localhost:8088/sample-api/v1/boards/90
+GET http://localhost:8088/sample-api/v1/boards/111
 
 ###
 POST  http://localhost:8088/sample-api/v1/boards
@@ -31,7 +31,7 @@ Content-Type: application/json
   "contents": "clt-test-수정",
   "modifyId": "user1",
   "modifyName": "사용자1",
-  "modifyDate": "2021-01-25T16:20:45"
+  "modifyDate": "2021-02-14T16:20:45"
 }
 
 ###
