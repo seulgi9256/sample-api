@@ -2,14 +2,11 @@ package com.example.sampleapi.repository.board.entity;
 
 import java.time.LocalDateTime;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
 import com.example.sampleapi.model.board.InsertBoard;
 import com.example.sampleapi.model.board.UpdateBoard;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,11 +21,9 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-@Entity
-@Table(name = "board")
+@Table("board")
 public class BoardEntity {
     @Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
     private int num;	
 	private String title;
 	private String contents;
@@ -62,7 +57,3 @@ public class BoardEntity {
     }
     
 }
-
-
-
-

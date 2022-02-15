@@ -41,26 +41,25 @@ public class BoardService {
 
 	 
 	public Board view( int num)  {		
-		BoardEntity boardEntity = boardRepository.findById(num).orElse(BoardEntity.builder().build());
-		return convertBoard(boardEntity);
+		Board board = boardRepository.nativeBoard(num);
+		return board;
 
 	}
 
 	public Board insert( InsertBoard insertBoard){		
 
-		// BoardEntity boardEntity= new BoardEntity();
-		// BeanUtils.copyProperties(insertBoard, boardEntity);
 		
 		BoardEntity boardEntity = BoardEntity.of(insertBoard);
 		BoardEntity result  = boardRepository.save(boardEntity);
-		return convertBoard(result);
+		return Board.of(result);
 	}
 
 	@Transactional
 	public int updateBoard( UpdateBoard updateBoard) {
-		BoardEntity boardEntity=  BoardEntity.of(updateBoard);		 
-		int result = boardRepository.updateBoard(boardEntity);
-		return result;
+		BoardEntity entity=  BoardEntity.of(updateBoard);		 
+		boolean result = boardRepository.updateBoard(entity.getTitle(), entity.getContents(), entity.getModifyId(), entity.getModifyName(), entity.getModifyDate(), entity.getNum());
+		if(result) return 1;
+		return 0;
 		
 	}
  
@@ -70,11 +69,5 @@ public class BoardService {
 
 	}
 
-	private Board convertBoard(BoardEntity boardEntity){
-		Board board= new Board();
-		BeanUtils.copyProperties(boardEntity, board);
-		return board;
-
-	}
     
 }

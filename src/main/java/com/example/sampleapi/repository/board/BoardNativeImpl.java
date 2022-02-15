@@ -85,6 +85,16 @@ public class BoardNativeImpl implements BoardNative{
         return new PageImpl<Board>(boardList, pageRequest, boardList.size());
     }
 
+    @Override
+    public Board nativeBoard(int num) {
+        String sql = BoardSqls.SELECT; 
+
+        SqlParameterSource paramSource = new MapSqlParameterSource().addValue("num", num);
+        Board board = namedTemplate.queryForObject(sql, paramSource, boardRowMapper);
+        return board;
+        
+    }
+
    
 
     // @Override
@@ -111,6 +121,8 @@ public class BoardNativeImpl implements BoardNative{
         return new StringBuilder(sql);
 
     }
+
+   
 
    
 

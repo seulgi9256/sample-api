@@ -1,20 +1,20 @@
 package com.example.sampleapi.repository.board;
 
+import java.time.LocalDateTime;
+
 import com.example.sampleapi.repository.board.entity.BoardEntity;
 
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
+import org.springframework.data.jdbc.repository.query.Modifying;
+import org.springframework.data.jdbc.repository.query.Query;
+import org.springframework.data.repository.PagingAndSortingRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface BoardRepository extends JpaRepository<BoardEntity, Integer> , BoardNative {
+public interface BoardRepository extends PagingAndSortingRepository<BoardEntity, Integer> , BoardNative {
 
     @Modifying
-	@Query(value="UPDATE board b set b.title = :#{#board.title}, b.contents = :#{#board.contents}, b.modify_id = :#{#board.modifyId}, b.modify_name = :#{#board.modifyName}, b.modify_date = now()  WHERE b.num = :#{#board.num}",  nativeQuery= true)
-	Integer  updateBoard(@Param("board") BoardEntity board);
-
+    @Query(value="UPDATE board b set b.title = :title , b.contents = :contents , b.modify_id = :modifyId , b.modify_name = :modifyName , b.modify_date = :modifyDate WHERE b.num = :num")
+    boolean updateBoard(String title, String contents,String modifyId, String modifyName , LocalDateTime modifyDate,  int num);
  
     
     

@@ -12,7 +12,10 @@ public interface BoardNative {
     public List<Board> nativeBoardList(PageRequest pageRequest);
   
     public List<Board> nativeSearch(Board paramBoard);
+
     public List<Board> nativeSearchWhere(Board paramBoard);
+    public Board nativeBoard(int num);
+
     public PageImpl<Board> nativeSearchByPaging(String search, PageRequest pageRequest);
     public int[] nativeBatchUpdateInsertBoard(final List<Board> boards);
 }
