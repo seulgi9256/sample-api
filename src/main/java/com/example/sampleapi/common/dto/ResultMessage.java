@@ -1,4 +1,4 @@
-package com.example.sampleapi.model.common;
+package com.example.sampleapi.common.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

@@ -1,4 +1,4 @@
-package com.example.sampleapi.model.board;
+package com.example.sampleapi.board.query.dto;
 
 import java.time.LocalDateTime;
 
@@ -15,12 +15,16 @@ import lombok.ToString;
 @AllArgsConstructor
 @NoArgsConstructor
 @ToString
-public class InsertBoard {
-   
+
+public class BoardDto {
+    private int num;	
 	private String title;
 	private String contents;
-    private String writeId;
+	private String writeId;
 	private String writeName;	
 	private LocalDateTime writeDate;
+	private String modifyId;
+	private String modifyName;	
+	private LocalDateTime  modifyDate;
     
 }
