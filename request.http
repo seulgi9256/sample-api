@@ -1,5 +1,5 @@
 ##########local########
-GET http://localhost:8088/sample-api/v1/query/boards
+GET http://localhost:8088/sample-api/v1/query/boards/list
 
 
 ###

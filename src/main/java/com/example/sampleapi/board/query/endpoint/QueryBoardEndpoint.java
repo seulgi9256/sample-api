@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/sample-api/v1/query/boards")
+@RequestMapping("/sample-api/v1/boards/list")
 @RequiredArgsConstructor
 @Slf4j
 public class QueryBoardEndpoint {
