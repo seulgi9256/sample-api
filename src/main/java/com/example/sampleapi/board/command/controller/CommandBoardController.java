@@ -1,4 +1,4 @@
-package com.example.sampleapi.board.command.endpoint;
+package com.example.sampleapi.board.command.controller;
 
 import com.example.sampleapi.board.command.domain.Board;
 import com.example.sampleapi.board.command.service.CommandBoardService;
@@ -18,10 +18,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/sample-api/v1/command/boards")
+@RequestMapping("/sample-api/v1/boards")
 @RequiredArgsConstructor
 @Slf4j
-public class CommandBoardEndpoint {
+public class CommandBoardController {
     private final CommandBoardService commandService;
 
 	@PostMapping()
@@ -46,11 +46,6 @@ public class CommandBoardEndpoint {
 		return getResponseEntity(result);
 
 	}
-
-
-
-
-    
 
     private ResponseEntity<ResultMessage> getResponseEntity(int result) {
 		if(result > 0) {		

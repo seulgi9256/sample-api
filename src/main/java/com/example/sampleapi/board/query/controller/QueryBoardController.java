@@ -1,4 +1,4 @@
-package com.example.sampleapi.board.query.endpoint;
+package com.example.sampleapi.board.query.controller;
 
 import java.util.List;
 
@@ -15,10 +15,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("/sample-api/v1/boards/list")
+@RequestMapping("/sample-api/v1/boards")
 @RequiredArgsConstructor
 @Slf4j
-public class QueryBoardEndpoint {
+public class QueryBoardController {
     private final QueryBoardService queryService;
 
     @GetMapping("/totalCount")
@@ -26,7 +26,7 @@ public class QueryBoardEndpoint {
 		return  (int) queryService.totalCount();
 	}
 
-    @GetMapping()
+    @GetMapping("/list")
 	public  List<BoardDto>  boardList(@RequestParam(value="size", defaultValue = "10")  int size , @RequestParam(value="page", defaultValue = "1") int page) {
 		List<BoardDto> boardList = queryService.boardList(size, page);
 		return boardList;
