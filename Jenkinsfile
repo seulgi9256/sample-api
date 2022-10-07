@@ -23,7 +23,7 @@ pipeline {
                         sh "skaffold build -p dev -t ${TAG}"
                     }
                     // mac local 일때만 사용 linux 환경에서는 docker.withRegistry 사용
-                    sh "skaffold build -p dev -t ${TAG}"
+                    //sh "skaffold build -p dev -t ${TAG}"
                 }
             }
         }
