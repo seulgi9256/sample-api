@@ -38,7 +38,7 @@ pipeline {
                 git url: "https://${gitOpsUrl}", branch: "main" , credentialsId: "git-credential"
                 script{
                     sh """
-                        cd ./simple-api/blue-green
+                        cd ./sample-api/rolling-update-with-deployment
                         kustomize edit set image oscka/sample-api:${TAG}
                         # 로컬외에는 주석 제거한다
                         git config --global user.email "admin@demo.com"
