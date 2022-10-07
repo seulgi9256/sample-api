@@ -8,9 +8,9 @@ server:
 spring:
   datasource:    
     driverClassName: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.167.23.27:3306/blackstar2?autoReconnect=true&useUnicode=true&characterEncoding=utf8
-    username: blackstar2
-    password: 1234
+    url: jdbc:mysql://mysql.192.168.56.10.sslip.io:3306/sampledb?autoReconnect=true&useUnicode=true&characterEncoding=utf8
+    username: oscer
+    password: Oscer2022@!
     hikari: 
       pool-name: hikari-cp
       maximum-pool-size: 30
