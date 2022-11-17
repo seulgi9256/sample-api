@@ -6,11 +6,13 @@ MicroService Architecture 구성 및 패턴 설명을 위한 Sample Project 입�
 
 다음과 같이 빌드 및 실행할 수 있습니다.
 
-```bash
+```zsh
 # 빌드
 ./mvnw clean install -DskipTests
 # 실행
 ./mvnw spring-boot:run
+# 특정 프로파일로 실행
+./mvnw spring-boot:run -Dspring-boot.run.profiles=dev
 ```
 
 정상적인 실행을 위해서는 접속할 DB설정 및 sampledb.sql 실행이 필요합니다.
