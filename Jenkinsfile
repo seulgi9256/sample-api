@@ -1,6 +1,6 @@
 def PROJECT_NAME = "sample-api"
 def gitUrl = "https://github.com/oscka/${PROJECT_NAME}.git"
-def imgRegistry = ""
+def imgRegistry = "https://registry.hub.docker.com"
 def gitOpsUrl = "https://github.com/oscka/sample-gitops.git"
 def opsBranch = "main"
 /////////////////////////////
@@ -19,7 +19,7 @@ pipeline {
                         branches: [[name: "refs/tags/${TAG}"]]],
                     poll: false
                 script{
-                    docker.withRegistry("","imageRegistry-credential"){   //credential 이름이 jenkins에 등록된 이름과 동일해야 함, jenkins에 docker deploy 권한 필요
+                    docker.withRegistry("${imgRegistry}","imageRegistry-credential"){   //credential 이름이 jenkins에 등록된 이름과 동일해야 함, jenkins에 docker deploy 권한 필요
                         sh "skaffold build -p dev -t ${TAG}"
                     }
                     // mac local 일때만 사용 linux 환경에서는 docker.withRegistry 사용
