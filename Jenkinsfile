@@ -1,6 +1,6 @@
 def PROJECT_NAME = "sample-api"
-def gitUrl = "https://github.com/oscka/${PROJECT_NAME}.git"
-def gitOpsUrl = "https://github.com/oscka/sample-gitops.git"
+def gitUrl = "https://github.com/seulgi9256/${PROJECT_NAME}.git"
+def gitOpsUrl = "https://github.com/seulgi9256/sample-gitops.git"
 def opsBranch = "main"
 /////////////////////////////
 pipeline {
